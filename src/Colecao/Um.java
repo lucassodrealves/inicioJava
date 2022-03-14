@@ -2,8 +2,10 @@ package Colecao;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
-import Colecao.Estoque;
+import java.util.Iterator;
 
+import Colecao.Estoque;
+import java.util.Iterator;
 
 public class Um {
 	
@@ -11,7 +13,7 @@ public class Um {
 		char b;
 		Scanner ler=new Scanner(System.in);
 		Estoque a=new Estoque();
-		String c;
+	
 		Menu m=new Menu();
 		
 	int i=99;
@@ -21,6 +23,7 @@ public class Um {
 	
 		
 		ArrayList<String> d=new ArrayList<>();
+		
 		for( i=0;i<=99;i++) {
 			
 		    
@@ -28,17 +31,19 @@ public class Um {
 			
 			m.colocaComando(ler.next().charAt(h));
 			b=m.pegaComando();
+		
 			
 		
 		switch(b) {
 		
 		case 'a':
 			
+			
+			
 			System.out.println("Qual o nome do item a ser adicionado ao estoque?");
-			ler.nextLine();
 			
 			
-			d.add(ler.nextLine()+"."+i);
+			d.add(ler.next()+"."+(i+1));
 			
 		
 			
@@ -51,11 +56,19 @@ public class Um {
 		break;
 		
 		case 'b':
+			Iterator<String> iterator=d.iterator();
 			
-			System.out.println("Qual o número do item a ser removido?");
-			ler.nextLine();
-			d.remove(ler.nextLine());
-			Collections.sort(d);
+			System.out.println("Qual o nome do item a ser removido?");
+			String item=ler.next();
+			
+			while( iterator.hasNext()) {
+			String c =iterator.next();
+			
+			if(c==item) {
+			iterator.remove();
+			}
+			}
+		
 			System.out.println(d);
 			
 			i--;
@@ -66,18 +79,19 @@ public class Um {
 		case 'c' :
 			
 		
-	      
-			System.out.println("Qual o número do item a ser atualizado?");
-			ler.nextLine();
-		    d.remove(ler.nextLine());
-			System.out.println("Digite seu novo nome:");
-			ler.nextLine();
-	        d.add(ler.nextLine()+"."+i);
-	        
-	 
-			Collections.sort(d);
+	     
+			System.out.println("Qual o nome do item a ser atualizado?");
+		
+		 
+			        
+			 
+					Collections.sort(d);
+					
+					System.out.println(d);
+				
 			
-			System.out.println(d);
+		   
+			
 		
 			
 	        

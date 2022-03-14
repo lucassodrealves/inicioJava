@@ -6,6 +6,8 @@ public class Estoque  {
 	private ArrayList<String>itens;
 	
 	
+	
+	
 	public ArrayList<String> pegaItens() {
 		
 		return itens;
@@ -15,13 +17,11 @@ public class Estoque  {
 		this.itens=item;
 		
 	}
-    
-	/*public void apagaItem(int i) {
-		
-		this.itens.remove(i);
-		
-		
-	}*/
+	
+	
+
+	
+	
 	
 			
 		
